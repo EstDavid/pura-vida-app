@@ -159,6 +159,33 @@ Configure this file as a setup file in the Jest's configuration in the ```packag
 
 npm install date-fns --save
 
+## react-native-svg
+
+npx expo install react-native-svg
+
+npx expo install react-native-svg-transformer
+
+create ```metro.config.js``` file with this content:
+
+```javascript
+const { getDefaultConfig } = require('metro-config');
+
+module.exports = (async () => {
+    const {
+        resolver: { sourceExts, assetExts },
+    } = await getDefaultConfig();
+    return {
+        transformer: {
+            babelTransformerPath: require.resolve('react-native-svg-transformer'),
+        },
+        resolver: {
+            assetExts: assetExts.filter(ext => ext !== 'svg'),
+            sourceExts: [...sourceExts, 'svg'],
+        },
+    };
+})();
+```
+
 ## [React Native Paper](https://callstack.github.io/react-native-paper/)
 
 npm install react-native-paper
