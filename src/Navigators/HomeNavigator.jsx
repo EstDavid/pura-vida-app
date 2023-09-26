@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from '../components/Home';
-import Program from '../components/Program';
+import Home, { homeMenuItems } from '../components/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,10 +16,14 @@ const HomeNavigator = () => {
                 name="Home"
                 component={Home}
             />
-            <Stack.Screen
-                name="Program"
-                component={Program}
-            />
+            {homeMenuItems.map((item, index) => {
+                return (
+                    <Stack.Screen
+                        key={index}
+                        name={item.title}
+                        component={item.component} />
+                );
+            })}
         </Stack.Navigator>
     );
 };

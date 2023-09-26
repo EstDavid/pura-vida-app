@@ -1,9 +1,6 @@
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import { StyleSheet } from 'react-native';
-import NotificationsNavigator from '../../Navigators/NotificationsNavigator';
-import HomeNavigator from '../../Navigators/HomeNavigator';
-import ProfileNavigator from '../../Navigators/ProfileNavigator';
-import AboutNavigator from '../../Navigators/AboutNavigator';
+import { bottomBarTabs } from '../../core';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -24,39 +21,22 @@ const styles = StyleSheet.create({
 
 const BottomBar = () => {
     return (
-        <Tab.Navigator initialRouteName="HomeNavigator" styles={{ colors: styles.navBarColors }}>
-            <Tab.Screen
-                name="HomeNavigator"
-                component={HomeNavigator}
-                options={{
-                    tabBarLabel: 'Home',
-                    tabBarIcon: 'heart',
-                }}
-            />
-            <Tab.Screen
-                name="ProfileNavigator"
-                component={ProfileNavigator}
-                options={{
-                    tabBarLabel: 'My Pura Vida',
-                    tabBarIcon: 'meditation'
-                }}
-            />
-            <Tab.Screen
-                name="About"
-                component={AboutNavigator}
-                options={{
-                    tabBarLabel: 'About',
-                    tabBarIcon: 'set-none',
-                }}
-            />
-            <Tab.Screen
-                name="NotificationsNavigator"
-                component={NotificationsNavigator}
-                options={{
-                    tabBarLabel: 'Notifications',
-                    tabBarIcon: 'bell'
-                }}
-            />
+        <Tab.Navigator initialRouteName={bottomBarTabs[0].name} styles={{ colors: styles.navBarColors }}>
+            {bottomBarTabs.map((tab, index) => {
+                const { name, component, tabBarLabel, tabBarIcon } = tab;
+                return (
+                    <Tab.Screen
+                        key={index}
+                        name={name}
+                        component={component}
+                        options={{
+                            tabBarLabel,
+                            tabBarIcon,
+                        }}
+                    />
+                );
+
+            })}
         </Tab.Navigator>
     );
 };
