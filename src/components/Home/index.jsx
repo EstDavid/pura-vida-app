@@ -1,12 +1,44 @@
-import { Text, View } from 'react-native';
-import AppBar from '../AppBar';
+import { StyleSheet, FlatList, View } from 'react-native';
+import HomeCard from './HomeCard';
 
-const Home = () => {
+const styles = StyleSheet.create({
+    cardsContainer: {
+        display: 'flex',
+    },
+    cardsRow: {
+        display: 'flex',
+        flexDirection: 'row'
+    }
+});
+
+const homeMenuItems = [
+    {
+        title: 'Program'
+    },
+    {
+        title: 'Location map'
+    },
+    {
+        title: 'Stages'
+    },
+    {
+        title: 'Spaces'
+    },
+];
+
+const Home = ({ navigation }) => {
     return (
-        <View>
-            <AppBar title="Home" />
-            <Text>This is Pura Vida!!</Text>
-
+        <View style={styles.cardsContainer}>
+            <FlatList
+                data={homeMenuItems}
+                renderItem={({ item }) => {
+                    return (
+                        <HomeCard title={item.title} navigation={navigation} />
+                    );
+                }}
+                numColumns={2}
+                key={2}
+            />
         </View>
     );
 };

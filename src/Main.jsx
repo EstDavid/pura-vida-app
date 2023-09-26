@@ -1,13 +1,25 @@
-import { View } from 'react-native';
-import { Navigate, Route, Routes } from 'react-router-native';
-import Home from './components/Home';
+import { NavigationContainer } from '@react-navigation/native';
 import BottomBar from './components/BottomBar/';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AppBar from './components/AppBar';
+
+const Stack = createNativeStackNavigator();
 
 const Main = () => {
     return (
-        <>
-            <BottomBar />
-        </>
+        <NavigationContainer>
+            <Stack.Navigator
+                initialRouteName="BottomBar"
+                screenOptions={{
+                    header: (props) => <AppBar {...props} />,
+                }}
+            >
+                <Stack.Screen
+                    name="BottomBar"
+                    component={BottomBar}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 };
 

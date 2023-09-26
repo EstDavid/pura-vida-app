@@ -220,6 +220,10 @@ export default function Main() {
 AppRegistry.registerComponent(appName, () => Main);
 ```
 
+## Navigation
+
+npm install @react-navigation/native-stack
+
 ### Customization
 
 You can provide a custom theme to customize the colors, typescales etc. with the ```Provider``` component. Check the [Material Design 3 default theme](https://github.com/callstack/react-native-paper/blob/main/src/styles/themes/v3/LightTheme.tsx) to see what customization options are supported.

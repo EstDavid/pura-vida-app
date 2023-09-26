@@ -1,40 +1,63 @@
-import { useState } from 'react';
-import { BottomNavigation } from 'react-native-paper';
-import Home from '../Home';
-import About from '../About';
-import Profile from '../Profile';
-import Notifications from '../Notifications';
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
+import { StyleSheet } from 'react-native';
+import NotificationsNavigator from '../../Navigators/NotificationsNavigator';
+import HomeNavigator from '../../Navigators/HomeNavigator';
+import ProfileNavigator from '../../Navigators/ProfileNavigator';
+import AboutNavigator from '../../Navigators/AboutNavigator';
 
-const HomeRoute = () => <Home />;
+const Tab = createMaterialBottomTabNavigator();
 
-const ProfileRoute = () => <Profile />;
-
-const AboutRoute = () => <About />;
-
-const NotificationsRoute = () => <Notifications />;
+const styles = StyleSheet.create({
+    screen: {
+        flex: 1
+    },
+    navBarColors: {
+        onSurface: 'white',
+        onTertiaryContainer: 'white',
+        onSecondaryContainer: '#595959',
+        onSurfaceVariant: 'white',
+        elevation: {
+            level2: '#D84414'
+        }
+    }
+});
 
 const BottomBar = () => {
-    const [index, setIndex] = useState(0);
-    const [routes] = useState([
-        { key: 'home', title: 'Home', focusedIcon: 'heart', unfocusedIcon: 'heart-outline' },
-        { key: 'profile', title: 'My Pura Vida', focusedIcon: 'meditation' },
-        { key: 'about', title: 'About', focusedIcon: 'set-none' },
-        { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
-    ]);
-
-    const renderScene = BottomNavigation.SceneMap({
-        home: HomeRoute,
-        profile: ProfileRoute,
-        about: AboutRoute,
-        notifications: NotificationsRoute,
-    });
-
     return (
-        <BottomNavigation
-            navigationState={{ index, routes }}
-            onIndexChange={setIndex}
-            renderScene={renderScene}
-        />
+        <Tab.Navigator initialRouteName="HomeNavigator" styles={{ colors: styles.navBarColors }}>
+            <Tab.Screen
+                name="HomeNavigator"
+                component={HomeNavigator}
+                options={{
+                    tabBarLabel: 'Home',
+                    tabBarIcon: 'heart',
+                }}
+            />
+            <Tab.Screen
+                name="ProfileNavigator"
+                component={ProfileNavigator}
+                options={{
+                    tabBarLabel: 'My Pura Vida',
+                    tabBarIcon: 'meditation'
+                }}
+            />
+            <Tab.Screen
+                name="About"
+                component={AboutNavigator}
+                options={{
+                    tabBarLabel: 'About',
+                    tabBarIcon: 'set-none',
+                }}
+            />
+            <Tab.Screen
+                name="NotificationsNavigator"
+                component={NotificationsNavigator}
+                options={{
+                    tabBarLabel: 'Notifications',
+                    tabBarIcon: 'bell'
+                }}
+            />
+        </Tab.Navigator>
     );
 };
 
