@@ -21,7 +21,7 @@ const HomeCard = ({ title, navigation }) => {
             style={styles.card}
             mode='contained'
             onPress={() => {
-                navigation.navigate('Program');
+                navigation.navigate(title);
             }}
         >
             <Card.Content>

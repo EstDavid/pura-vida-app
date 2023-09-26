@@ -1,5 +1,9 @@
 import { StyleSheet, FlatList, View } from 'react-native';
 import HomeCard from './HomeCard';
+import Program from './Program';
+import LocationMap from './LocationMap';
+import Stages from './Stages';
+import Spaces from './Spaces';
 
 const styles = StyleSheet.create({
     cardsContainer: {
@@ -11,18 +15,22 @@ const styles = StyleSheet.create({
     }
 });
 
-const homeMenuItems = [
+export const homeMenuItems = [
     {
-        title: 'Program'
+        title: 'Program',
+        component: Program
     },
     {
-        title: 'Location map'
+        title: 'Location map',
+        component: LocationMap
     },
     {
-        title: 'Stages'
+        title: 'Stages',
+        component: Stages
     },
     {
-        title: 'Spaces'
+        title: 'Spaces',
+        component: Spaces
     },
 ];
 
