@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const HomeCard = ({ title, navigation }) => {
+const HomeCard = ({ title, navigation, imageUri }) => {
     return (
         <Card
             style={styles.card}
@@ -27,7 +27,7 @@ const HomeCard = ({ title, navigation }) => {
             <Card.Content>
                 <Text variant="titleMedium">{title}</Text>
             </Card.Content>
-            <Card.Cover style={styles.image} source={{ uri: 'https://picsum.photos/700' }} />
+            <Card.Cover style={styles.image} source={{ uri: imageUri }} />
         </Card>
     );
 };

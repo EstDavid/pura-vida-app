@@ -18,19 +18,23 @@ const styles = StyleSheet.create({
 export const homeMenuItems = [
     {
         title: 'Program',
-        component: Program
+        component: Program,
+        imageUri: 'https://uploads-ssl.webflow.com/6097f6edceccace67c4ba955/6391d7198a629c4010e0fb83_2022_Pura-Vida-Berlin_99%40anatorres.jpg'
     },
     {
         title: 'Location map',
-        component: LocationMap
+        component: LocationMap,
+        imageUri: 'https://uploads-ssl.webflow.com/6097f6edceccace67c4ba955/6391d71b64021812e1a84032_2022_Pura-Vida-Berlin_113%40anatorres.jpg'
     },
     {
         title: 'Stages',
-        component: Stages
+        component: Stages,
+        imageUri: 'https://uploads-ssl.webflow.com/6097f6edceccace67c4ba955/6391d71a67f5cf0189444c39_2022_Pura-Vida-Berlin_186%40anatorres.jpg'
     },
     {
         title: 'Spaces',
-        component: Spaces
+        component: Spaces,
+        imageUri: 'https://uploads-ssl.webflow.com/6097f6edceccace67c4ba955/6391d71f8b16d68e3a1598bc_2022_Pura-Vida-Berlin_440%40anatorres.jpg'
     },
 ];
 
@@ -41,7 +45,11 @@ const Home = ({ navigation }) => {
                 data={homeMenuItems}
                 renderItem={({ item }) => {
                     return (
-                        <HomeCard title={item.title} navigation={navigation} />
+                        <HomeCard
+                            title={item.title}
+                            navigation={navigation}
+                            imageUri={item.imageUri}
+                        />
                     );
                 }}
                 numColumns={2}

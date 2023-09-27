@@ -5,11 +5,6 @@ import {
     NotificationsNavigator
 } from '../Navigators/';
 
-import LocationMap from '../components/Home/LocationMap';
-import Program from '../components/Home/Program';
-import Spaces from '../components/Home/Spaces';
-import Stages from '../components/Home/Stages';
-
 export const bottomBarTabs = [
     {
         name: 'HomeNavigator',
