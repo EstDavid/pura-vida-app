@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/b1e87fca-1a14-4f71-aaf3-21c7a2fa69ea"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -35,6 +36,9 @@
         "projectId": "b1e87fca-1a14-4f71-aaf3-21c7a2fa69ea"
       }
     },
-    "owner": "estdav"
+    "owner": "estdav",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
   }
 }
