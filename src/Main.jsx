@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
-import BottomBar from './components/BottomBar/';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppBar from './components/AppBar';
+import BottomBarNavigator from './Navigators/BottomBarNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,8 +15,8 @@ const Main = () => {
                 }}
             >
                 <Stack.Screen
-                    name="BottomBar"
-                    component={BottomBar}
+                    name="BottomBarNavigator"
+                    component={BottomBarNavigator}
                 />
             </Stack.Navigator>
         </NavigationContainer>

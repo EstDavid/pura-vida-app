@@ -1,27 +1,12 @@
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
-import { StyleSheet } from 'react-native';
-import { bottomBarTabs } from '../../core';
+import { bottomBarTabs } from '../core';
+import theme from '../theme';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1
-    },
-    navBarColors: {
-        onSurface: 'white',
-        onTertiaryContainer: 'white',
-        onSecondaryContainer: '#595959',
-        onSurfaceVariant: 'white',
-        elevation: {
-            level2: '#D84414'
-        }
-    }
-});
-
-const BottomBar = () => {
+const BottomBarNavigator = () => {
     return (
-        <Tab.Navigator initialRouteName={bottomBarTabs[0].name} styles={{ colors: styles.navBarColors }}>
+        <Tab.Navigator initialRouteName={bottomBarTabs[0].name} styles={{ colors: theme.bottomNavigation.colors }}>
             {bottomBarTabs.map((tab, index) => {
                 const { name, component, tabBarLabel, tabBarIcon } = tab;
                 return (
@@ -41,4 +26,4 @@ const BottomBar = () => {
     );
 };
 
-export default BottomBar;
+export default BottomBarNavigator;

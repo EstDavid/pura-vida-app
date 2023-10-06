@@ -1,4 +1,7 @@
 // import { Platform } from 'react-native';
+import { Dimensions } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
 
 const theme = {
     appBarLogoContainer: {
@@ -16,6 +19,41 @@ const theme = {
         color: 'white',
         fontSize: 25,
         padding: 5
+    },
+    bottomNavigation: {
+        colors: {
+            onSurface: 'white',
+            onTertiaryContainer: 'white',
+            onSecondaryContainer: '#595959',
+            onSurfaceVariant: 'white',
+            elevation: {
+                level2: '#D84414'
+            }
+        }
+    },
+    header: {
+        colors: {
+            onSurface: 'white',
+            onTertiaryContainer: 'white',
+            onSecondaryContainer: '#595959',
+            onSurfaceVariant: 'white',
+            elevation: {
+                level2: '#D84414'
+            }
+        }
+    },
+    headerNavigation: {
+        colors: {
+            headerTint: 'white',
+            backgroundColor: '#E27659'
+        }
+    },
+    homeCards: {
+        cardMargin: 5,
+        carMargin: this.cardMargin,
+        cardWidth: screenWidth / 2 - this.cardMargin * 2,
+        imageMargin: 5,
+        imageHeight: 100,
     }
 };
 
