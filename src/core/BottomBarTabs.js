@@ -3,30 +3,30 @@ import {
     ProfileNavigator,
     AboutNavigator,
     NotificationsNavigator
-} from '../Navigators/';
+} from '../Navigators';
 
 export const bottomBarTabs = [
     {
         name: 'HomeNavigator',
-        component: HomeNavigator,
+        Component: HomeNavigator,
         tabBarLabel: 'Home',
-        tabBarIcon: 'heart'
+        tabBarIcon: 'heart',
     },
     {
         name: 'ProfileNavigator',
-        component: ProfileNavigator,
+        Component: ProfileNavigator,
         tabBarLabel: 'My Pura Vida',
         tabBarIcon: 'meditation'
     },
     {
         name: 'AboutNavigator',
-        component: AboutNavigator,
+        Component: AboutNavigator,
         tabBarLabel: 'About',
         tabBarIcon: 'set-none'
     },
     {
         name: 'NotificationsNavigator',
-        component: NotificationsNavigator,
+        Component: NotificationsNavigator,
         tabBarLabel: 'Notifications',
         tabBarIcon: 'bell'
     }

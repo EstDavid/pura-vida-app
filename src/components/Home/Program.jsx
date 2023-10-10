@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
-import { Button, DataTable, SegmentedButtons } from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
+import { Button, SegmentedButtons } from 'react-native-paper';
+import Table from './Table';
+import { stages, times, weekDayOptions } from '../../core/ProgramParams';
 
 const styles = StyleSheet.create({
     weekDayOptions: {
@@ -12,62 +14,20 @@ const styles = StyleSheet.create({
     }
 });
 
-const weekDayOptions = [
-    {
-        day: 'all'
-    },
-    {
-        day: 'thu'
-    },
-    {
-        day: 'fri'
-    },
-    {
-        day: 'sat'
-    },
-    {
-        day: 'sun'
-    }
-];
+const headers = ['Time'].concat(stages.map((stage) => {
+    return stage.name.charAt(0).toUpperCase() + stage.name.slice(1);
+}));
 
-const stages = [
-    {
-        name: 'mind'
-    },
-    {
-        name: 'body'
-    },
-    {
-        name: 'heart'
-    },
-    {
-        name: 'play'
-    },
-    {
-        name: 'world'
-    }
-];
-
-const times = [
-    {
-        timeFrom: '09:00',
-        timeTo: '10:00',
-        mindActivity: 'Silent Sitting',
-        bodyActivity: 'Yoga',
-        heartActivity: 'Breathwork',
-        playActivity: 'BioDanza',
-        worldActivity: 'Somatic Awakening'
-    },
-    {
-        timeFrom: '11:00',
-        timeTo: '13:00',
-        mindActivity: 'Meditation',
-        bodyActivity: 'Intuitive Sacred Kitchen Course',
-        heartActivity: 'Rising Stronger: Embracing Trauma To Cultivate Resilience',
-        playActivity: 'Voice Activation',
-        worldActivity: 'Klimabewusstein: Von Hoffnungslosigkeit zu'
-    }
-];
+const data = times.map((item) => {
+    return [
+        `${item.timeFrom} - \n${item.timeTo}`,
+        item.mindActivity,
+        item.bodyActivity,
+        item.heartActivity,
+        item.playActivity,
+        item.worldActivity
+    ];
+});
 
 const Program = () => {
     const [program, setProgram] = useState('full-program');
@@ -112,7 +72,7 @@ const Program = () => {
                     );
                 })}
             </View>
-            <ScrollView horizontal>
+            {/* <ScrollView horizontal>
                 <DataTable style={{ width: 900 }}>
                     <DataTable.Header>
                         <DataTable.Title style={{ width: 9 }}>Time</DataTable.Title>
@@ -143,8 +103,8 @@ const Program = () => {
                         );
                     })}
                 </DataTable>
-
-            </ScrollView>
+            </ScrollView> */}
+            <Table data={data} headers={headers} />
         </View>
     );
 };
