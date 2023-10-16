@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Chip, SegmentedButtons } from 'react-native-paper';
 import Table from './Table';
-import { stages, times, weekDayOptions } from '../../core/ProgramParams';
+import { programOptions, stages, times, weekDayOptions } from '../../core/ProgramParams';
 
 const styles = StyleSheet.create({
     weekDayOptions: {
@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
 });
 
 const Program = ({ navigate }) => {
-    const [program, setProgram] = useState('full-program');
-    const [day, setDay] = useState('thu');
+    const [program, setProgram] = useState(programOptions[0].value);
+    const [day, setDay] = useState(weekDayOptions[0].day);
     const [stagesToDisplay, setStagesToDisplay] = useState(stages.map((stage) => {
         return stage.name;
     }));
@@ -70,20 +70,7 @@ const Program = ({ navigate }) => {
             <SegmentedButtons
                 value={program}
                 onValueChange={setProgram}
-                buttons={[
-                    {
-                        value: 'full-program',
-                        label: 'Full Program'
-                    },
-                    {
-                        value: 'healers',
-                        label: 'Healers'
-                    },
-                    {
-                        value: 'my-program',
-                        label: 'My Program'
-                    }
-                ]}
+                buttons={programOptions}
             />
             <View style={styles.weekDayOptions}>
                 {weekDayOptions.map((button, index) => {

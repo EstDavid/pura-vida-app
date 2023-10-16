@@ -3,9 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const weekDayOptions = [
     {
-        day: 'all'
-    },
-    {
         day: 'thu'
     },
     {
@@ -34,6 +31,21 @@ export const stages = [
     },
     {
         name: 'world'
+    }
+];
+
+export const programOptions = [
+    {
+        value: 'full-program',
+        label: 'Full Program'
+    },
+    {
+        value: 'healers',
+        label: 'Healers'
+    },
+    {
+        value: 'my-program',
+        label: 'My Program'
     }
 ];
 
