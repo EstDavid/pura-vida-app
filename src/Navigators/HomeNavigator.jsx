@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home, { homeMenuItems } from '../components/Home';
+import Home from '../components/Home';
+import { homeMenuItems } from '../core/homeMenuItems';
 import theme from '../theme';
 import ActivityPage from '../components/Home/Activity';
 
