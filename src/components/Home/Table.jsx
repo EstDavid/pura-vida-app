@@ -1,8 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { DataTable } from 'react-native-paper';
 
+
 const Table = ({ data, headers }) => {
+    const navigation = useNavigation();
     return (
         <ScrollView horizontal style={styles.scrollView}>
             <DataTable style={styles.table}>
@@ -18,11 +21,12 @@ const Table = ({ data, headers }) => {
                 {data.map((row, rowIndex) => (
                     <DataTable.Row key={rowIndex} style={styles.row}>
                         {row.map((cell, cellIndex) => (
-                            <View
+                            <Pressable
                                 key={cellIndex}
+                                onPress={() => navigation.navigate('Activity', { activity: cell })}
                                 style={{ ...styles.column, width: cellIndex === 0 ? 80 : styles.column.width }}>
-                                <Text style={styles.cellText}>{cell}</Text>
-                            </View>
+                                <Text style={styles.cellText}>{cell.name}</Text>
+                            </Pressable>
                         ))}
                     </DataTable.Row>
                 ))}

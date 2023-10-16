@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Dimensions } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 
@@ -15,7 +16,8 @@ const styles = StyleSheet.create({
     }
 });
 
-const HomeCard = ({ title, navigation, imageUri }) => {
+const HomeCard = ({ title, imageUri }) => {
+    const navigation = useNavigation();
     return (
         <Card
             style={styles.card}
