@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { Appbar, Text } from 'react-native-paper';
-import SVGlogo from '../../../assets/logo.svg';
 import theme from '../../theme';
+import SvgLogo from '../../../assets/svgs/logo';
 
 const AppBar = () => {
     return (
@@ -12,7 +12,7 @@ const AppBar = () => {
         >
             <View style={{ ...theme.appBarLogoContainer }}>
                 <Text style={theme.appBarLogoText}>Pura</Text>
-                <SVGlogo width={theme.appBarLogo.width} height={theme.appBarLogo.height} />
+                <SvgLogo />
                 <Text style={theme.appBarLogoText}>Vida</Text>
             </View>
         </Appbar.Header>

@@ -50,8 +50,7 @@ const theme = {
     },
     homeCards: {
         cardMargin: 5,
-        carMargin: this.cardMargin,
-        cardWidth: screenWidth / 2 - this.cardMargin * 2,
+        cardWidth: screenWidth / 2 - 5 * 2,
         imageMargin: 5,
         imageHeight: 100,
     }
