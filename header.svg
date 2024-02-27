@@ -1,0 +1,15 @@
+<svg fill="none" viewBox="0 0 800 400" width="800" height="400" >
+  <style>
+    .blue-block {
+      background-color: blue;
+      width: 100%;
+      height: 20px;
+    }
+  </style>
+  <foreignObject>
+    <div class="blue-block">
+      
+    </div>
+  </foreignObject>
+  
+<svg>
